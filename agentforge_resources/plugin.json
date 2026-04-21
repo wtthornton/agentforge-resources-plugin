@@ -1,0 +1,21 @@
+{
+  "schema_version": "1",
+  "id": "resources-test",
+  "display_name": "Resources Test",
+  "version": "1.0.0",
+  "namespace": "project.resources-test",
+  "backend": {
+    "entry_point": "agentforge_resources.plugin:register",
+    "routes_prefix": "/api/resources-test",
+    "resource_providers": ["agentforge_resources.providers:MemoryResourceProvider"]
+  },
+  "agents": [
+    {"name": "resources-test-agent", "path": "agentforge_resources/agents/resources_test_agent"}
+  ],
+  "frontend": {
+    "remote_url": "",
+    "nav_label": "Resources Test",
+    "nav_icon": "Database",
+    "route": "/resources-test"
+  }
+}

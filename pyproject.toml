@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agentforge-resources-plugin"
+version = "1.0.0"
+description = "Test rig for AgentForge resources entry-point — MemoryResourceProvider, resolve_all, hot-reload."
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115",
+    "pydantic>=2.0",
+]
+
+[project.entry-points."agentforge.plugins"]
+resources-test = "agentforge_resources"
+
+[project.entry-points."agentforge.resources"]
+memory-provider = "agentforge_resources.providers:MemoryResourceProvider"
+
+[tool.hatch.build.targets.wheel]
+packages = ["agentforge_resources"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"agentforge_resources/plugin.json" = "agentforge_resources/plugin.json"
+"agentforge_resources/agents/resources_test_agent/AGENT.md" = "agentforge_resources/agents/resources_test_agent/AGENT.md"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0",
+    "httpx>=0.28",
+]
