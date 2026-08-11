@@ -3,7 +3,6 @@ name: resources-test-agent
 namespace: project.resources-test.resources-test-agent
 description: Test agent for agentforge.resources entry-point rig.
 keywords: [resources, test]
-runner: agentforge_resources.agents.resources_test_agent.runner:ResourcesRunner
 resources:
   - name: store
     kind: memory
